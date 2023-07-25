@@ -42,7 +42,7 @@ function App() {
               useLocalStorage
             </label>
           </div>
-          {/* <div>
+          <div>
             <label>
               <input
                 onChange={handleChange}
@@ -54,7 +54,7 @@ function App() {
               ></input>
               useHover
             </label>
-          </div> */}
+          </div>
         </fieldset>
         {exercise === 'useFetch' && (
           <>
@@ -68,12 +68,12 @@ function App() {
             <DemoLocalStorage />
           </>
         )}
-        {/* {exercise === 'useHover' && (
+        {exercise === 'useHover' && (
           <>
             <h1>{exercise}</h1>
             <DemoHover />
           </>
-        )} */}
+        )}
       </header>
     </div>
   );
