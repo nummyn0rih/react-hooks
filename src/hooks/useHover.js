@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useWindowEvent } from './useWindowEvent';
 
 const isInside = ({ x, y }, { left, right, top, bottom }) => {
   if (x >= left && x <= right && y >= top && y <= bottom) {
@@ -34,14 +35,7 @@ export function useHover() {
     }
   };
 
-  useEffect(() => {
-    const app = document.querySelector('.App');
-    app.addEventListener('mousemove', listener);
-
-    return () => {
-      app.removeEventListener('mousemove', listener);
-    };
-  }, []);
+  useWindowEvent('mousemove', listener);
 
   return { hovered, ref };
 }
