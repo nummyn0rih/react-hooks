@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DemoFetch from './components/DomoFetch';
 import DemoLocalStorage from './components/DemoLocalStorage';
 import DemoHover from './components/DemoHover';
+import DemoViewportSize from './components/DemoViewportSize';
 import './App.css';
 
 function App() {
@@ -36,8 +37,8 @@ function App() {
                 type='radio'
                 id='localStorage'
                 name='hooks'
-                value='uselocalStorage'
-                checked={exercise === 'uselocalStorage'}
+                value='useLocalStorage'
+                checked={exercise === 'useLocalStorage'}
               ></input>
               useLocalStorage
             </label>
@@ -55,6 +56,19 @@ function App() {
               useHover
             </label>
           </div>
+          <div>
+            <label>
+              <input
+                onChange={handleChange}
+                type='radio'
+                id='viewportSize'
+                name='hooks'
+                value='useViewportSize'
+                checked={exercise === 'useViewportSize'}
+              ></input>
+              useViewportSize
+            </label>
+          </div>
         </fieldset>
         {exercise === 'useFetch' && (
           <>
@@ -62,7 +76,7 @@ function App() {
             <DemoFetch />
           </>
         )}
-        {exercise === 'uselocalStorage' && (
+        {exercise === 'useLocalStorage' && (
           <>
             <h1>{exercise}</h1>
             <DemoLocalStorage />
@@ -72,6 +86,12 @@ function App() {
           <>
             <h1>{exercise}</h1>
             <DemoHover />
+          </>
+        )}
+        {exercise === 'useViewportSize' && (
+          <>
+            <h1>{exercise}</h1>
+            <DemoViewportSize />
           </>
         )}
       </header>
