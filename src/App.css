@@ -44,3 +44,18 @@ button {
 #ref:hover {
   background-color: cyan;
 }
+
+#scroller {
+  height: 4500px;
+  width: 3000px;
+}
+
+.posFix {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+}
+
+p.posFix {
+  top: 80px;
+}

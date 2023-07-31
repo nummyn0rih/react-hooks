@@ -3,10 +3,18 @@ import DemoFetch from './components/DomoFetch';
 import DemoLocalStorage from './components/DemoLocalStorage';
 import DemoHover from './components/DemoHover';
 import DemoViewportSize from './components/DemoViewportSize';
+import DemoWindowScroll from './components/DemoWindowScroll';
 import './App.css';
 
 function App() {
   const [exercise, setExercise] = useState('useFetch');
+  const exercises = [
+    'useFetch',
+    'useLocalStorage',
+    'useHover',
+    'useViewportSize',
+    'useWindowScroll',
+  ];
 
   const handleChange = ({ target }) => {
     setExercise(target.value);
@@ -17,59 +25,24 @@ function App() {
       <header className='App-header'>
         <fieldset>
           <legend>Выбор задания</legend>
-          <div>
-            <label>
-              <input
-                onChange={handleChange}
-                type='radio'
-                id='fetch'
-                name='hooks'
-                value='useFetch'
-                checked={exercise === 'useFetch'}
-              ></input>
-              useFetch
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                onChange={handleChange}
-                type='radio'
-                id='localStorage'
-                name='hooks'
-                value='useLocalStorage'
-                checked={exercise === 'useLocalStorage'}
-              ></input>
-              useLocalStorage
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                onChange={handleChange}
-                type='radio'
-                id='hover'
-                name='hooks'
-                value='useHover'
-                checked={exercise === 'useHover'}
-              ></input>
-              useHover
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                onChange={handleChange}
-                type='radio'
-                id='viewportSize'
-                name='hooks'
-                value='useViewportSize'
-                checked={exercise === 'useViewportSize'}
-              ></input>
-              useViewportSize
-            </label>
-          </div>
+
+          {exercises.map((ex) => (
+            <div key={ex}>
+              <label>
+                <input
+                  onChange={handleChange}
+                  type='radio'
+                  id={ex}
+                  name='hooks'
+                  value={ex}
+                  checked={exercise === ex}
+                ></input>
+                {ex}
+              </label>
+            </div>
+          ))}
         </fieldset>
+
         {exercise === 'useFetch' && (
           <>
             <h1>{exercise}</h1>
@@ -92,6 +65,12 @@ function App() {
           <>
             <h1>{exercise}</h1>
             <DemoViewportSize />
+          </>
+        )}
+        {exercise === 'useWindowScroll' && (
+          <>
+            <h1>{exercise}</h1>
+            <DemoWindowScroll />
           </>
         )}
       </header>
