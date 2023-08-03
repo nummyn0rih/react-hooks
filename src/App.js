@@ -4,6 +4,7 @@ import DemoLocalStorage from './components/DemoLocalStorage';
 import DemoHover from './components/DemoHover';
 import DemoViewportSize from './components/DemoViewportSize';
 import DemoWindowScroll from './components/DemoWindowScroll';
+import DemoToggle from './components/DemoToggle';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     'useHover',
     'useViewportSize',
     'useWindowScroll',
+    'useToggle',
   ];
 
   const handleChange = ({ target }) => {
@@ -71,6 +73,12 @@ function App() {
           <>
             <h1>{exercise}</h1>
             <DemoWindowScroll />
+          </>
+        )}
+        {exercise === 'useToggle' && (
+          <>
+            <h1>{exercise}</h1>
+            <DemoToggle />
           </>
         )}
       </header>
